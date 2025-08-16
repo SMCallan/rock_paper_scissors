@@ -113,6 +113,18 @@ body {
     margin-top: 10px;
 }
 
+.win {
+    color: green;
+}
+
+.lose {
+    color: red;
+}
+
+.tie {
+    color: gray;
+}
+
 .right {
     transform: none;
 }
