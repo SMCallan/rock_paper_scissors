@@ -1,7 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Bangers', cursive;
     text-align: center;
-    background-color: #f0f0f0;
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
     margin: 0;
     padding: 0;
 }
