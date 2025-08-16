@@ -28,6 +28,9 @@ const computerScoreSpan = document.getElementById('computerScore');
 let playerScore = 0;
 let computerScore = 0;
 
+playerScoreSpan.classList.add('tie');
+computerScoreSpan.classList.add('tie');
+
 // Wait for all images to load before enabling the start button
 startButton.disabled = true;
 Promise.all(
@@ -55,6 +58,7 @@ replayButton.addEventListener('click', () => {
     resultDiv.style.display = 'none';
     replayButton.style.display = 'none';
     resultText.textContent = '';
+    resultText.classList.remove('win', 'lose', 'tie');
     leftResult.src = '';
     rightResult.src = '';
     startButton.style.display = 'inline-block';
@@ -106,23 +110,44 @@ function showResult(playerChoice) {
     rightResult.className = 'player-image';
     resultDiv.style.display = 'block';
 
-    let outcome;
+    let outcome, outcomeClass;
     if (playerChoice === computerChoice) {
         outcome = "It's a tie!";
+        outcomeClass = 'tie';
     } else if (
         (playerChoice === 'Rock' && computerChoice === 'Scissors') ||
         (playerChoice === 'Paper' && computerChoice === 'Rock') ||
         (playerChoice === 'Scissors' && computerChoice === 'Paper')
     ) {
         outcome = 'You win!';
+        outcomeClass = 'win';
         playerScore++;
     } else {
         outcome = 'Computer wins!';
+        outcomeClass = 'lose';
         computerScore++;
     }
 
     resultText.textContent = outcome;
+    resultText.classList.remove('win', 'lose', 'tie');
+    resultText.classList.add(outcomeClass);
+
     playerScoreSpan.textContent = playerScore;
     computerScoreSpan.textContent = computerScore;
+
+    playerScoreSpan.classList.remove('win', 'lose', 'tie');
+    computerScoreSpan.classList.remove('win', 'lose', 'tie');
+
+    if (playerScore > computerScore) {
+        playerScoreSpan.classList.add('win');
+        computerScoreSpan.classList.add('lose');
+    } else if (playerScore < computerScore) {
+        playerScoreSpan.classList.add('lose');
+        computerScoreSpan.classList.add('win');
+    } else {
+        playerScoreSpan.classList.add('tie');
+        computerScoreSpan.classList.add('tie');
+    }
+
     replayButton.style.display = 'block';
 }
