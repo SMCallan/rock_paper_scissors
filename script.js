@@ -5,6 +5,13 @@ const images = {
     Scissors: 'Scissors.png'
 };
 
+// Preload all images so they're ready when needed
+const preloadedImages = Object.values(images).map(src => {
+    const img = new Image();
+    img.src = src;
+    return img;
+});
+
 const startButton = document.getElementById('startButton');
 const countdownDiv = document.getElementById('countdown');
 const countdownImage = document.getElementById('countdownImage');
@@ -20,6 +27,19 @@ const playerScoreSpan = document.getElementById('playerScore');
 const computerScoreSpan = document.getElementById('computerScore');
 let playerScore = 0;
 let computerScore = 0;
+
+// Wait for all images to load before enabling the start button
+startButton.disabled = true;
+Promise.all(
+    preloadedImages.map(img =>
+        new Promise(resolve => {
+            img.onload = resolve;
+            img.onerror = resolve;
+        })
+    )
+).then(() => {
+    startButton.disabled = false;
+});
 
 startButton.addEventListener('click', () => {
     startButton.style.display = 'none';
