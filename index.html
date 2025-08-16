@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="top-bar">
+        <div id="scoreboard">
+            Player: <span id="playerScore">0</span> | Computer: <span id="computerScore">0</span>
+        </div>
+    </div>
     <div class="game-wrapper">
         <button id="startButton">Start</button>
         <button id="muteButton">🔊</button>
@@ -29,9 +34,6 @@
         <button id="replayButton" style="display:none;">Play Again</button>
 
         <p id="resultText"></p>
-        <div id="scoreboard">
-            Player: <span id="playerScore">0</span> | Computer: <span id="computerScore">0</span>
-        </div>
 
         <audio id="rpsAudio" src="RPS.wav"></audio>
 
