@@ -4,6 +4,8 @@ body {
     background: linear-gradient(135deg, #ff8a00, #e52e71);
     margin: 0;
     padding: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
 }
 
 .top-bar {
@@ -26,7 +28,7 @@ body {
 #muteButton {
     margin-top: 20px;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 1.25rem;
     cursor: pointer;
     border: none;
     border-radius: 8px;
@@ -113,10 +115,12 @@ body {
 #resultText {
     font-weight: bold;
     margin-top: 20px;
+    font-size: 1.5rem;
 }
 
 #scoreboard {
     font-weight: bold;
+    font-size: 1.5rem;
     margin-top: 0;
 }
 
@@ -137,6 +141,22 @@ body {
 }
 
 @media (max-width: 600px) {
+    body {
+        font-size: 5vw;
+    }
+
+    #startButton,
+    #replayButton,
+    #muteButton {
+        font-size: 5vw;
+        padding: 3vw 5vw;
+    }
+
+    #scoreboard,
+    #resultText {
+        font-size: 6vw;
+    }
+
     #countdownImage,
     .player-image {
         width: 40vw;
