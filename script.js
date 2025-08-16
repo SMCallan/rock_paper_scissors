@@ -14,6 +14,7 @@ const leftResult = document.getElementById('leftResult');
 const rightResult = document.getElementById('rightResult');
 const replayButton = document.getElementById('replayButton');
 const audio = document.getElementById('rpsAudio');
+const muteButton = document.getElementById('muteButton');
 const resultText = document.getElementById('resultText');
 const playerScoreSpan = document.getElementById('playerScore');
 const computerScoreSpan = document.getElementById('computerScore');
@@ -23,6 +24,11 @@ let computerScore = 0;
 startButton.addEventListener('click', () => {
     startButton.style.display = 'none';
     playCountdown(showChoices);
+});
+
+muteButton.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    muteButton.textContent = audio.muted ? '🔇' : '🔊';
 });
 
 replayButton.addEventListener('click', () => {
