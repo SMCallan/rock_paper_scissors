@@ -53,3 +53,19 @@ body {
 .right {
     transform: rotate(90deg);
 }
+
+@media (max-width: 600px) {
+    #countdownImage,
+    .player-image {
+        width: 40vw;
+        max-width: 150px;
+        height: auto;
+    }
+
+    #choices img {
+        width: 20vw;
+        max-width: 80px;
+        height: auto;
+        margin: 5px;
+    }
+}
