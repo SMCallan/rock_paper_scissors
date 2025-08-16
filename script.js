@@ -97,20 +97,22 @@ function showChoices() {
 }
 
 function showResult(playerChoice) {
-    const computerChoice = choices[Math.floor(Math.random() * 3)];
-    leftResult.src = images[computerChoice];
+    const leftChoice = choices[Math.floor(Math.random() * 3)];
+    leftResult.src = images[leftChoice];
     rightResult.src = images[playerChoice];
+    leftResult.alt = leftChoice;
+    rightResult.alt = playerChoice;
     leftResult.className = 'player-image left';
     rightResult.className = 'player-image right';
     resultDiv.style.display = 'block';
 
     let outcome;
-    if (playerChoice === computerChoice) {
+    if (playerChoice === leftChoice) {
         outcome = "It's a tie!";
     } else if (
-        (playerChoice === 'Rock' && computerChoice === 'Scissors') ||
-        (playerChoice === 'Paper' && computerChoice === 'Rock') ||
-        (playerChoice === 'Scissors' && computerChoice === 'Paper')
+        (playerChoice === 'Rock' && leftChoice === 'Scissors') ||
+        (playerChoice === 'Paper' && leftChoice === 'Rock') ||
+        (playerChoice === 'Scissors' && leftChoice === 'Paper')
     ) {
         outcome = 'You win!';
         playerScore++;
