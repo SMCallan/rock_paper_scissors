@@ -62,8 +62,9 @@ body {
     margin: 0 20px;
 }
 
+/* Display result images upright */
 .left {
-    transform: rotate(-90deg);
+    transform: none;
 }
 
 #resultText {
@@ -77,7 +78,7 @@ body {
 }
 
 .right {
-    transform: rotate(90deg);
+    transform: none;
 }
 
 @media (max-width: 600px) {

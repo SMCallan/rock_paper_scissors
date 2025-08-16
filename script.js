@@ -43,7 +43,7 @@ Promise.all(
 
 startButton.addEventListener('click', () => {
     startButton.style.display = 'none';
-    playCountdown(showChoices);
+    showChoices();
 });
 
 muteButton.addEventListener('click', () => {
@@ -79,15 +79,15 @@ function playCountdown(callback) {
     countdownDiv.style.display = 'block';
     audio.currentTime = 0;
     audio.play();
-    countdownImage.src = images[choices[index % 3]];
+    countdownImage.src = images[choices[index]];
     const interval = setInterval(() => {
         index++;
-        if (index >= 6) {
+        if (index >= choices.length) {
             clearInterval(interval);
             countdownDiv.style.display = 'none';
             callback();
         } else {
-            countdownImage.src = images[choices[index % 3]];
+            countdownImage.src = images[choices[index]];
         }
     }, 1000);
 }
@@ -102,8 +102,8 @@ function showResult(playerChoice) {
     rightResult.src = images[playerChoice];
     leftResult.alt = leftChoice;
     rightResult.alt = playerChoice;
-    leftResult.className = 'player-image left';
-    rightResult.className = 'player-image right';
+    leftResult.className = 'player-image';
+    rightResult.className = 'player-image';
     resultDiv.style.display = 'block';
 
     let outcome;
