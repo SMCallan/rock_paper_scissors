@@ -13,6 +13,11 @@ const resultDiv = document.getElementById('result');
 const leftResult = document.getElementById('leftResult');
 const rightResult = document.getElementById('rightResult');
 const audio = document.getElementById('rpsAudio');
+const resultText = document.getElementById('resultText');
+const playerScoreSpan = document.getElementById('playerScore');
+const computerScoreSpan = document.getElementById('computerScore');
+let playerScore = 0;
+let computerScore = 0;
 
 startButton.addEventListener('click', () => {
     startButton.style.display = 'none';
@@ -50,10 +55,29 @@ function showChoices() {
 }
 
 function showResult(playerChoice) {
-    const leftChoice = choices[Math.floor(Math.random() * 3)];
-    leftResult.src = images[leftChoice];
+    const computerChoice = choices[Math.floor(Math.random() * 3)];
+    leftResult.src = images[computerChoice];
     rightResult.src = images[playerChoice];
     leftResult.className = 'player-image left';
     rightResult.className = 'player-image right';
     resultDiv.style.display = 'block';
+
+    let outcome;
+    if (playerChoice === computerChoice) {
+        outcome = "It's a tie!";
+    } else if (
+        (playerChoice === 'Rock' && computerChoice === 'Scissors') ||
+        (playerChoice === 'Paper' && computerChoice === 'Rock') ||
+        (playerChoice === 'Scissors' && computerChoice === 'Paper')
+    ) {
+        outcome = 'You win!';
+        playerScore++;
+    } else {
+        outcome = 'Computer wins!';
+        computerScore++;
+    }
+
+    resultText.textContent = outcome;
+    playerScoreSpan.textContent = playerScore;
+    computerScoreSpan.textContent = computerScore;
 }
