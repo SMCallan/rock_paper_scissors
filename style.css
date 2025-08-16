@@ -6,7 +6,20 @@ body {
     padding: 0;
 }
 
-.center {
+.game-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#countdown,
+#choices,
+#result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
 }
 

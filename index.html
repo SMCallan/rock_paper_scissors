@@ -6,25 +6,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="startButton">Start</button>
+    <div class="game-wrapper">
+        <button id="startButton">Start</button>
 
-    <div id="countdown" class="center" style="display:none;">
-        <img id="countdownImage" src="" alt="Countdown">
+        <div id="countdown" style="display:none;">
+            <img id="countdownImage" src="" alt="Countdown">
+        </div>
+
+        <div id="choices" style="display:none;">
+            <img class="choice" data-choice="Rock" src="Rock.png" alt="Rock">
+            <img class="choice" data-choice="Paper" src="Paper.png" alt="Paper">
+            <img class="choice" data-choice="Scissors" src="Scissors.png" alt="Scissors">
+        </div>
+
+        <div id="result" style="display:none;">
+            <img id="leftResult" class="player-image" src="" alt="Left player">
+            <img id="rightResult" class="player-image" src="" alt="Right player">
+        </div>
+
+        <audio id="rpsAudio" src="RPS.wav"></audio>
+
+        <script src="script.js"></script>
     </div>
-
-    <div id="choices" class="center" style="display:none;">
-        <img class="choice" data-choice="Rock" src="Rock.png" alt="Rock">
-        <img class="choice" data-choice="Paper" src="Paper.png" alt="Paper">
-        <img class="choice" data-choice="Scissors" src="Scissors.png" alt="Scissors">
-    </div>
-
-    <div id="result" class="center" style="display:none;">
-        <img id="leftResult" class="player-image" src="" alt="Left player">
-        <img id="rightResult" class="player-image" src="" alt="Right player">
-    </div>
-
-    <audio id="rpsAudio" src="RPS.wav"></audio>
-
-    <script src="script.js"></script>
 </body>
 </html>
