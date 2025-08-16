@@ -36,15 +36,22 @@ body {
     height: 200px;
 }
 
-#choices img {
+
+.choice {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.choice img {
     width: 100px;
     height: 100px;
     margin: 10px;
-    cursor: pointer;
     transition: transform 0.2s;
 }
 
-#choices img:hover {
+.choice:hover img {
     transform: scale(1.1);
 }
 
@@ -80,7 +87,7 @@ body {
         height: auto;
     }
 
-    #choices img {
+    .choice img {
         width: 20vw;
         max-width: 80px;
         height: auto;

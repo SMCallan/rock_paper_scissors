@@ -34,11 +34,17 @@ replayButton.addEventListener('click', () => {
     startButton.style.display = 'inline-block';
 });
 
-Array.from(document.getElementsByClassName('choice')).forEach(img => {
-    img.addEventListener('click', () => {
-        const playerChoice = img.getAttribute('data-choice');
+document.querySelectorAll('.choice').forEach(button => {
+    const handleChoice = () => {
+        const playerChoice = button.getAttribute('data-choice');
         choicesDiv.style.display = 'none';
         playCountdown(() => showResult(playerChoice));
+    };
+    button.addEventListener('click', handleChoice);
+    button.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            handleChoice();
+        }
     });
 });
 
