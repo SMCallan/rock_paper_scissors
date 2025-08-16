@@ -50,6 +50,16 @@ body {
     transform: rotate(-90deg);
 }
 
+#resultText {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#scoreboard {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 .right {
     transform: rotate(90deg);
 }
