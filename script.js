@@ -12,6 +12,7 @@ const choicesDiv = document.getElementById('choices');
 const resultDiv = document.getElementById('result');
 const leftResult = document.getElementById('leftResult');
 const rightResult = document.getElementById('rightResult');
+const replayButton = document.getElementById('replayButton');
 const audio = document.getElementById('rpsAudio');
 const resultText = document.getElementById('resultText');
 const playerScoreSpan = document.getElementById('playerScore');
@@ -22,6 +23,15 @@ let computerScore = 0;
 startButton.addEventListener('click', () => {
     startButton.style.display = 'none';
     playCountdown(showChoices);
+});
+
+replayButton.addEventListener('click', () => {
+    resultDiv.style.display = 'none';
+    replayButton.style.display = 'none';
+    resultText.textContent = '';
+    leftResult.src = '';
+    rightResult.src = '';
+    startButton.style.display = 'inline-block';
 });
 
 Array.from(document.getElementsByClassName('choice')).forEach(img => {
@@ -80,4 +90,5 @@ function showResult(playerChoice) {
     resultText.textContent = outcome;
     playerScoreSpan.textContent = playerScore;
     computerScoreSpan.textContent = computerScore;
+    replayButton.style.display = 'block';
 }
